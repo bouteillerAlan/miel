@@ -1,0 +1,11 @@
+{
+  "name": "miel",
+  "version": "0.1.0",
+  "description": "A shared honey-gold theme for Neovim, Pi, and tmux.",
+  "keywords": ["pi-package", "pi-theme", "neovim", "tmux", "theme"],
+  "license": "MIT",
+  "pi": {
+    "extensions": ["./extensions/miel-footer.ts"],
+    "themes": ["./themes/miel.json"]
+  }
+}
