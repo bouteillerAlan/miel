@@ -63,7 +63,7 @@ set -g @plugin 'bouteillerAlan/miel'
 Or source a local checkout:
 
 ```tmux
-source-file ~/Documents/miel/miel.tmux
+source-file ~/Documents/miel/miel.conf
 ```
 
 Window labels are Fraktur `𝖆` (a) through `𝖟` (z). Higher indexes use their number.

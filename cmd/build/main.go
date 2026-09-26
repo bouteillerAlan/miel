@@ -33,7 +33,7 @@ func main() {
 	files := map[string]string{
 		"lua/miel/palette.lua": luaPalette(palette.Colors),
 		"themes/miel.json":     piTheme(palette),
-		"miel.tmux":            tmuxTheme(palette.Colors),
+		"miel.conf":            tmuxTheme(palette.Colors),
 	}
 	check := len(os.Args) == 2 && os.Args[1] == "--check"
 	for path, content := range files {
