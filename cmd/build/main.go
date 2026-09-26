@@ -33,6 +33,7 @@ func main() {
 	files := map[string]string{
 		"lua/miel/palette.lua": luaPalette(palette.Colors),
 		"themes/miel.json":     piTheme(palette),
+		"themes/miel.omp.json": ohMyPoshTheme(palette.Colors),
 		"miel.conf":            tmuxTheme(palette.Colors),
 	}
 	check := len(os.Args) == 2 && os.Args[1] == "--check"
@@ -98,6 +99,129 @@ func piTheme(palette Palette) string {
 		fail(err)
 	}
 	return string(data) + "\n"
+}
+
+func ohMyPoshTheme(c map[string]string) string {
+	return fmt.Sprintf(`{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": %q,
+          "template": "root <%s>in</> "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": %q,
+          "template": "{{ .Path }} ",
+          "options": {
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": %q,
+          "template": "<%s>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "options": {
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": %q,
+          "template": "<%s>via</> \ue781 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ if .Full }}{{ .Full }}{{ else }}<%s>nover</>{{ end }} ",
+          "options": {
+            "fetch_version": true
+          }
+        },
+        {
+          "type": "language",
+          "style": "plain",
+          "foreground": %q,
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<%s>nover</>{{ end }} ",
+          "options": {
+            "name": "typescript",
+            "extensions": ["*.ts", "*.tsx"],
+            "project_files": ["tsconfig.json"],
+            "tools": [
+              {
+                "name": "tsc",
+                "executable": "tsc",
+                "args": ["--version"],
+                "regex": "Version (?P<version>\\d+\\.\\d+\\.\\d+(?:[-+][\\w.]+)?)"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": %q,
+          "template": "{{ if env \"POSH_TURBO_VERSION\" }}/  {{ env \"POSH_TURBO_VERSION\" }} {{ end }}"
+        },
+        {
+          "type": "yarn",
+          "style": "plain",
+          "foreground": %q,
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<%s>nover</>{{ end }} ",
+          "options": {
+            "display_mode": "files",
+            "extensions": ["yarn.lock"]
+          }
+        },
+        {
+          "type": "npm",
+          "style": "plain",
+          "foreground": %q,
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<%s>nover</>{{ end }} ",
+          "options": {
+            "display_mode": "files",
+            "extensions": ["package-lock.json"]
+          }
+        },
+        {
+          "type": "pnpm",
+          "style": "plain",
+          "foreground": %q,
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<%s>nover</>{{ end }}",
+          "options": {
+            "display_mode": "files",
+            "extensions": ["pnpm-lock.yaml"]
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": %q,
+          "template": "x "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": %q,
+          "template": "➜ "
+        }
+      ]
+    }
+  ]
+}
+`, c["bronze"], c["cream"], c["gold"], c["hot_gold"], c["cream"], c["gold"], c["cream"], c["bronze"], c["gold"], c["bronze"], c["hot_gold"], c["muted_gold"], c["bronze"], c["gold"], c["bronze"], c["bronze"], c["dim_gold"], c["bronze"], c["hot_gold"])
 }
 
 func tmuxTheme(c map[string]string) string {

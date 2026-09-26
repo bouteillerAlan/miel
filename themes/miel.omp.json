@@ -1,0 +1,119 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#A66A2C",
+          "template": "root <#FFF1CC>in</> "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#E6A817",
+          "template": "{{ .Path }} ",
+          "options": {
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#FFC857",
+          "template": "<#FFF1CC>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "options": {
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#E6A817",
+          "template": "<#FFF1CC>via</> \ue781 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ if .Full }}{{ .Full }}{{ else }}<#A66A2C>nover</>{{ end }} ",
+          "options": {
+            "fetch_version": true
+          }
+        },
+        {
+          "type": "language",
+          "style": "plain",
+          "foreground": "#E6A817",
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<#A66A2C>nover</>{{ end }} ",
+          "options": {
+            "name": "typescript",
+            "extensions": ["*.ts", "*.tsx"],
+            "project_files": ["tsconfig.json"],
+            "tools": [
+              {
+                "name": "tsc",
+                "executable": "tsc",
+                "args": ["--version"],
+                "regex": "Version (?P<version>\\d+\\.\\d+\\.\\d+(?:[-+][\\w.]+)?)"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#FFC857",
+          "template": "{{ if env \"POSH_TURBO_VERSION\" }}/  {{ env \"POSH_TURBO_VERSION\" }} {{ end }}"
+        },
+        {
+          "type": "yarn",
+          "style": "plain",
+          "foreground": "#98743A",
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<#A66A2C>nover</>{{ end }} ",
+          "options": {
+            "display_mode": "files",
+            "extensions": ["yarn.lock"]
+          }
+        },
+        {
+          "type": "npm",
+          "style": "plain",
+          "foreground": "#E6A817",
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<#A66A2C>nover</>{{ end }} ",
+          "options": {
+            "display_mode": "files",
+            "extensions": ["package-lock.json"]
+          }
+        },
+        {
+          "type": "pnpm",
+          "style": "plain",
+          "foreground": "#A66A2C",
+          "template": "/  {{ if .Full }}{{ .Full }}{{ else }}<#6F552C>nover</>{{ end }}",
+          "options": {
+            "display_mode": "files",
+            "extensions": ["pnpm-lock.yaml"]
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#A66A2C",
+          "template": "x "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#FFC857",
+          "template": "➜ "
+        }
+      ]
+    }
+  ]
+}
