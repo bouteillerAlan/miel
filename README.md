@@ -11,17 +11,35 @@ Tmux and pi
 <img width="2546" height="1355" alt="image" src="https://github.com/user-attachments/assets/3a5f4cf1-c017-473d-87e3-622173f3a737" />
 <img width="2543" height="52" alt="image" src="https://github.com/user-attachments/assets/7fcad75e-7abf-4626-ab8d-97abde8f8f49" />
 
-
 ## Install
 
 ### Neovim
 
 ```lua
-{ "bouteillerAlan/miel" }
+{
+  "bouteillerAlan/miel",
+  dependencies = {
+    "uhs-robert/oasis.nvim",
+    "nvim-lualine/lualine.nvim",
+  },
+  config = function()
+    require("miel").setup()
+  end,
+}
 ```
 
-Miel provides the shared lualine palette. It does not replace your colorscheme.
-For a local checkout, use `dir = "~/Documents/miel"` instead.
+Miel configures Oasis Moonlight with Miel highlights and a lualine bar. Its Neovim setup sets gold window and float borders.
+
+Choose either integration with `setup`:
+
+```lua
+require("miel").setup({
+  nvim = true,
+  lualine = false,
+})
+```
+
+Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel"` instead.
 
 ### Pi
 
