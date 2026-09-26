@@ -4,16 +4,24 @@ A honey-gold theme for Neovim, Pi, and tmux.
 
 Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim)
 
-Nvim
+## Features and screenshot
+
+- [Neovim miel feature list](docs/neovim.md): Oasis Moonlight highlights, lualine theme, and borders.
+- [Pi miel feature list](docs/pi.md): Miel theme and status footer.
+- [tmux miel feature list](docs/tmux.md): status bar, pane borders, and window labels.
+
+### Nvim
 <img width="2539" height="1347" alt="image" src="https://github.com/user-attachments/assets/542f5006-15f6-4d2d-a770-85a3cdd29e85" />
 
-Tmux and pi
+### Tmux and pi
 <img width="2546" height="1355" alt="image" src="https://github.com/user-attachments/assets/3a5f4cf1-c017-473d-87e3-622173f3a737" />
+
+### Pi bottom bar with  data
 <img width="2543" height="52" alt="image" src="https://github.com/user-attachments/assets/7fcad75e-7abf-4626-ab8d-97abde8f8f49" />
 
 ## Install
 
-### Neovim
+### [Neovim](https://neovim.io/)
 
 ```lua
 {
@@ -41,7 +49,7 @@ require("miel").setup({
 
 Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel"` instead.
 
-### Pi
+### [Pi](https://pi.dev)
 
 ```sh
 pi install git:github.com/bouteillerAlan/miel
@@ -52,7 +60,7 @@ For local development, run `pi install ~/Documents/miel`.
 
 The footer uses custom color and unicode thinking level. The context colors are gradient in function of the %.
 
-### tmux
+### [Tmux](https://github.com/tmux/tmux/wiki)
 
 With TPM:
 
