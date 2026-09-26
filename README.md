@@ -27,6 +27,7 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 ```lua
 {
   "bouteillerAlan/miel",
+  rtp = "neovim",
   dependencies = {
     "uhs-robert/oasis.nvim",
     "nvim-lualine/lualine.nvim",
@@ -48,7 +49,7 @@ require("miel").setup({
 })
 ```
 
-Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel"` instead.
+Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel", rtp = "neovim"` instead.
 
 ### [Pi](https://pi.dev)
 
@@ -67,10 +68,10 @@ Clone the repository, or download and extract its files:
 
 ```sh
 git clone https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
-ln -s ~/.config/oh-my-posh/miel/scripts/miel-versions.sh ~/.local/bin/miel-versions
+ln -s ~/.config/oh-my-posh/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
 
 # ~/.zshrc
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/miel/themes/miel.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/miel/oh-my-posh/themes/miel.omp.json)"
 ```
 
 For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
@@ -86,7 +87,7 @@ set -g @plugin 'bouteillerAlan/miel'
 Or source a local checkout:
 
 ```tmux
-source-file ~/Documents/miel/miel.conf
+source-file ~/Documents/miel/tmux/miel.conf
 ```
 
 Window labels are Fraktur `𝖆` (a) through `𝖟` (z). Higher indexes use their number.
