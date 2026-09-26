@@ -30,12 +30,12 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 ```lua
 {
   "bouteillerAlan/miel",
-  rtp = "neovim",
   dependencies = {
     "uhs-robert/oasis.nvim",
     "nvim-lualine/lualine.nvim",
   },
-  config = function()
+  config = function(plugin)
+    vim.opt.rtp:append(plugin.dir .. "/neovim")
     require("miel").setup()
   end,
 }
@@ -52,7 +52,7 @@ require("miel").setup({
 })
 ```
 
-Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel", rtp = "neovim"` instead.
+Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel"` instead.
 
 ### [Pi](https://pi.dev)
 

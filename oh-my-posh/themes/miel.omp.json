@@ -52,7 +52,7 @@
           "type": "text",
           "style": "plain",
           "foreground": "#FFC857",
-          "template": "➜ "
+          "template": "λ "
         }
       ]
     }

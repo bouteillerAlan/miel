@@ -135,9 +135,37 @@ add() {
   index=$((index + 1))
 }
 version() { "$@" 2>/dev/null || printf 'nover'; }
+go_version() {
+  command -v go >/dev/null 2>&1 && go version 2>/dev/null | awk '{print $3}' || printf 'nover'
+}
+java_version() {
+  command -v java >/dev/null 2>&1 && java -version 2>&1 | awk -F '"' '/version/ { print $2; exit }' || printf 'nover'
+}
+python_version() {
+  command -v python3 >/dev/null 2>&1 && version python3 --version || version python --version
+}
+qml_version() {
+  if command -v qml >/dev/null 2>&1; then
+    qml --version 2>&1 | awk 'NR == 1 { print $NF; exit }'
+  elif command -v qmake >/dev/null 2>&1; then
+    qmake -query QT_VERSION 2>/dev/null
+  else
+    printf 'nover'
+  fi
+}
 
 [ -f package.json ] && add '' "$(version node --version)"
 [ -f tsconfig.json ] && add '' "$(version tsc --version)"
+[ -f go.mod ] && add '' "$(go_version)"
+if [ -f pom.xml ] || [ -f build.gradle ] || [ -f build.gradle.kts ]; then
+  add '' "$(java_version)"
+fi
+if [ -f pyproject.toml ] || [ -f requirements.txt ] || [ -f Pipfile ] || [ -f setup.py ]; then
+  add '' "$(python_version)"
+fi
+if [ -f .qmlproject ] || [ -f ./*.qml ]; then
+  add 'QML' "$(qml_version)"
+fi
 
 dir=$PWD
 root=
@@ -223,7 +251,7 @@ func ohMyPoshTheme(c map[string]string) string {
           "type": "text",
           "style": "plain",
           "foreground": %q,
-          "template": "➜ "
+          "template": "λ "
         }
       ]
     }
