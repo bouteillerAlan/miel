@@ -10,13 +10,14 @@ Miel includes `themes/miel.omp.json`, an Oh My Posh prompt using only the Miel p
 
 ## Install
 
-Add the dynamic version script to your `PATH`, then point Oh My Posh to the theme:
+Clone the repository, or download and extract its files to `~/.config/oh-my-posh/miel`.
 
 ```sh
-ln -s ~/Documents/miel/scripts/miel-versions.sh ~/.local/bin/miel-versions
+git clone https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
+ln -s ~/.config/oh-my-posh/miel/scripts/miel-versions.sh ~/.local/bin/miel-versions
 
 # ~/.zshrc
-eval "$(oh-my-posh init zsh --config ~/Documents/miel/themes/miel.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/miel/themes/miel.omp.json)"
 ```
 
 For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`. The version script applies the gold gradient and detects Turbo from the nearest project root. The theme keeps the original icons, so use a Nerd Font.

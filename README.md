@@ -63,11 +63,14 @@ The footer uses custom color and unicode thinking level. The context colors are 
 
 ### [Oh My Posh](https://ohmyposh.dev)
 
+Clone the repository, or download and extract its files:
+
 ```sh
-ln -s ~/Documents/miel/scripts/miel-versions.sh ~/.local/bin/miel-versions
+git clone https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
+ln -s ~/.config/oh-my-posh/miel/scripts/miel-versions.sh ~/.local/bin/miel-versions
 
 # ~/.zshrc
-eval "$(oh-my-posh init zsh --config ~/Documents/miel/themes/miel.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/miel/themes/miel.omp.json)"
 ```
 
 For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
