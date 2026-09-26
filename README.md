@@ -64,10 +64,13 @@ The footer uses custom color and unicode thinking level. The context colors are 
 ### [Oh My Posh](https://ohmyposh.dev)
 
 ```sh
-oh-my-posh init <shell> --config ~/path/to/miel/themes/miel.omp.json
+ln -s ~/Documents/miel/scripts/miel-versions.sh ~/.local/bin/miel-versions
+
+# ~/.zshrc
+eval "$(oh-my-posh init zsh --config ~/Documents/miel/themes/miel.omp.json)"
 ```
 
-Replace `<shell>` with your shell, then add the command printed by Oh My Posh to its startup file.
+For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
 
 ### [Tmux](https://github.com/tmux/tmux/wiki)
 
