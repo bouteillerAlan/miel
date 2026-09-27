@@ -25,11 +25,19 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 
 ## Install
 
+Clone Miel once, then point each integration to this directory:
+
+```sh
+git clone https://github.com/bouteillerAlan/miel.git ~/.config/miel
+```
+
 ### [Neovim](https://neovim.io/)
+
+Use the shared clone as a local plugin:
 
 ```lua
 {
-  "bouteillerAlan/miel",
+  dir = vim.fn.expand("~/.config/miel"),
   dependencies = {
     "uhs-robert/oasis.nvim",
     "nvim-lualine/lualine.nvim",
@@ -41,9 +49,9 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 }
 ```
 
-Miel configures Oasis Moonlight with Miel highlights and a lualine bar. Its Neovim setup sets gold window and float borders.
+Miel configures Oasis Moonlight with Miel highlights and a lualine bar. Its Neovim setup sets gold window and borders.
 
-Choose either integration with `setup`:
+Choose either integration with `setup`, both are enabled by default:
 
 ```lua
 require("miel").setup({
@@ -52,54 +60,37 @@ require("miel").setup({
 })
 ```
 
-Both are enabled by default. To install only the Neovim files, create a sparse checkout and use it as the plugin directory:
-
-```sh
-git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.local/share/miel-neovim
-git -C ~/.local/share/miel-neovim sparse-checkout set neovim
-```
-
-Replace the repository name in the plugin spec with `dir = "~/.local/share/miel-neovim"`.
-
 ### [Pi](https://pi.dev)
 
+Install the Pi package from the shared clone:
+
 ```sh
-git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.local/share/miel-pi
-git -C ~/.local/share/miel-pi sparse-checkout set pi
-pi install ~/.local/share/miel-pi
+pi install ~/.config/miel
 ```
 
 The package installs the Miel theme and footer extension. Select `miel` in `/settings`.
-For local development, run `pi install ~/Documents/miel`.
 
 The footer uses custom color and unicode thinking level. The context colors are gradient in function of the %.
 
 ### [Oh My Posh](https://ohmyposh.dev)
 
-Create a sparse checkout with only the Oh My Posh files:
+Link and load Oh My Posh from the shared clone:
 
 ```sh
-git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
-git -C ~/.config/oh-my-posh/miel sparse-checkout set oh-my-posh
-ln -s ~/.config/oh-my-posh/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
+ln -s ~/.config/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
 
 # ~/.zshrc
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/miel/oh-my-posh/themes/miel.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/miel/oh-my-posh/themes/miel.omp.json)"
 ```
 
 For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
 
 ### [Tmux](https://github.com/tmux/tmux/wiki)
 
-Create a sparse checkout with only the tmux files, then source it:
-
-```sh
-git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.config/tmux/miel
-git -C ~/.config/tmux/miel sparse-checkout set tmux
-```
+Source tmux from the shared clone:
 
 ```tmux
-source-file ~/.config/tmux/miel/tmux/miel.conf
+source-file ~/.config/miel/tmux/miel.conf
 ```
 
 Window labels are Fraktur `𝖆` (a) through `𝖟` (z). Higher indexes use their number.
