@@ -20,8 +20,8 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 ### Pi bottom bar with  data
 <img width="2543" height="52" alt="image" src="https://github.com/user-attachments/assets/7fcad75e-7abf-4626-ab8d-97abde8f8f49" />
 
-### Oh my posh with gradient
-<img width="795" height="131" alt="image" src="https://github.com/user-attachments/assets/9f8ff333-6a0b-4eeb-acd6-cd954df2fb73" />
+### Oh my posh with gradient and custom path section
+<img width="834" height="134" alt="image" src="https://github.com/user-attachments/assets/18e1d13b-e88f-4a52-8d33-e13dc79e3b72" />
 
 ## Install
 
