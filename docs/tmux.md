@@ -19,13 +19,14 @@ Clone Miel once:
 git clone https://github.com/bouteillerAlan/miel.git ~/.config/miel
 ```
 
-Add this line to `~/.tmux.conf`:
+Add this to `~/.tmux.conf` to load Miel automatically whenever tmux starts:
 
 ```tmux
+# Load the Miel theme.
 source-file ~/.config/miel/tmux/miel.conf
 ```
 
-Reload tmux configuration:
+Start tmux normally after saving the file. To apply the theme to an existing tmux session, reload its configuration:
 
 ```sh
 tmux source-file ~/.tmux.conf

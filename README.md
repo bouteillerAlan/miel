@@ -87,10 +87,17 @@ For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
 
 ### [Tmux](https://github.com/tmux/tmux/wiki)
 
-Source tmux from the shared clone:
+Add this to `~/.tmux.conf` to load Miel automatically whenever tmux starts:
 
 ```tmux
+# Load the Miel theme.
 source-file ~/.config/miel/tmux/miel.conf
+```
+
+Start tmux normally after saving the file. To apply the theme to an existing tmux session, run:
+
+```sh
+tmux source-file ~/.tmux.conf
 ```
 
 Window labels are Fraktur `𝖆` (a) through `𝖟` (z). Higher indexes use their number.
