@@ -8,7 +8,7 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 
 - [Neovim miel feature list](docs/neovim.md): Oasis Moonlight highlights, lualine theme, and borders.
 - [Pi miel feature list](docs/pi.md): Miel theme and status footer.
-- [Oh My Posh feature list](docs/oh-my-posh.md): shell prompt with Miel colors and Unicode symbols.
+- [Oh My Posh feature list](docs/oh-my-posh.md): shell prompt with Miel colors, Unicode symbols, and a compact path.
 - [tmux miel feature list](docs/tmux.md): status bar, pane borders, and window labels.
 
 ### Nvim
@@ -52,12 +52,21 @@ require("miel").setup({
 })
 ```
 
-Both are enabled by default. For a local checkout, use `dir = "~/Documents/miel"` instead.
+Both are enabled by default. To install only the Neovim files, create a sparse checkout and use it as the plugin directory:
+
+```sh
+git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.local/share/miel-neovim
+git -C ~/.local/share/miel-neovim sparse-checkout set neovim
+```
+
+Replace the repository name in the plugin spec with `dir = "~/.local/share/miel-neovim"`.
 
 ### [Pi](https://pi.dev)
 
 ```sh
-pi install git:github.com/bouteillerAlan/miel
+git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.local/share/miel-pi
+git -C ~/.local/share/miel-pi sparse-checkout set pi
+pi install ~/.local/share/miel-pi
 ```
 
 The package installs the Miel theme and footer extension. Select `miel` in `/settings`.
@@ -67,10 +76,11 @@ The footer uses custom color and unicode thinking level. The context colors are 
 
 ### [Oh My Posh](https://ohmyposh.dev)
 
-Clone the repository, or download and extract its files:
+Create a sparse checkout with only the Oh My Posh files:
 
 ```sh
-git clone https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
+git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
+git -C ~/.config/oh-my-posh/miel sparse-checkout set oh-my-posh
 ln -s ~/.config/oh-my-posh/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
 
 # ~/.zshrc
@@ -81,16 +91,15 @@ For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
 
 ### [Tmux](https://github.com/tmux/tmux/wiki)
 
-With TPM:
+Create a sparse checkout with only the tmux files, then source it:
 
-```tmux
-set -g @plugin 'bouteillerAlan/miel'
+```sh
+git clone --depth=1 --filter=blob:none --sparse https://github.com/bouteillerAlan/miel.git ~/.config/tmux/miel
+git -C ~/.config/tmux/miel sparse-checkout set tmux
 ```
 
-Or source a local checkout:
-
 ```tmux
-source-file ~/Documents/miel/tmux/miel.conf
+source-file ~/.config/tmux/miel/tmux/miel.conf
 ```
 
 Window labels are Fraktur `𝖆` (a) through `𝖟` (z). Higher indexes use their number.

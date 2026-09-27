@@ -6,6 +6,7 @@ Miel includes `oh-my-posh/themes/miel.omp.json`, an Oh My Posh prompt using only
 
 - Root, path, Git, Node, TypeScript, Go, Java, Python, QML, Turbo, Yarn, npm, pnpm, and status segments from `star.omp.json`.
 - The original Oh My Posh icons for Git and language segments.
+- A compact path: parent folders use their first letter, including the dot for hidden folders, while the last two folders remain complete.
 - The `λ` prompt marker.
 
 ## Install
