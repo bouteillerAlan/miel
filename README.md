@@ -1,15 +1,15 @@
 # 🍯 Miel
 
-A honey-gold theme for Neovim, Pi, and tmux.
+A honey-gold theme for Neovim, Pi, Tmux and Oh my posh.
 
 Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (included as dependencies for nvim).
 
 ## Features and screenshot
 
-- [Neovim miel feature list](docs/neovim.md): Oasis Moonlight highlights, lualine theme, and borders.
-- [Pi miel feature list](docs/pi.md): Miel theme and status footer.
-- [Oh My Posh feature list](docs/oh-my-posh.md): shell prompt with Miel colors, Unicode symbols, and a compact path.
-- [tmux miel feature list](docs/tmux.md): status bar, pane borders, and window labels.
+- [Neovim miel](docs/neovim.md): Oasis Moonlight highlights, lualine theme, and borders.
+- [Pi miel](docs/pi.md): Miel theme and status footer.
+- [Oh My Posh](docs/oh-my-posh.md): shell prompt with Miel colors, Unicode symbols, and a compact path.
+- [tmux miel](docs/tmux.md): status bar, pane borders, and window labels.
 
 ### Nvim
 <img width="2539" height="1347" alt="image" src="https://github.com/user-attachments/assets/542f5006-15f6-4d2d-a770-85a3cdd29e85" />
