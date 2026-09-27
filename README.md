@@ -1,4 +1,4 @@
-# Miel
+# 🍯 Miel
 
 A honey-gold theme for Neovim, Pi, and tmux.
 
