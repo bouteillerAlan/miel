@@ -16,9 +16,9 @@
           "type": "path",
           "style": "plain",
           "foreground": "#E6A817",
-          "template": "{{ .Path }} ",
+          "template": "{{ $folders := splitList \"/\" .Location }}{{ $lastFullFolder := sub (len $folders) 2 }}{{ range $index, $folder := $folders }}{{ if ne $folder \"\" }}/{{ if lt $index $lastFullFolder }}{{ if hasPrefix \".\" $folder }}{{ substr 0 2 $folder }}{{ else }}{{ substr 0 1 $folder }}{{ end }}{{ else }}{{ $folder }}{{ end }}{{ end }}{{ end }} ",
           "options": {
-            "style": "folder"
+            "style": "full"
           }
         },
         {
