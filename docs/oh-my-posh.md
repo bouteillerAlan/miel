@@ -1,24 +1,31 @@
 # Oh My Posh
 
-Miel includes `oh-my-posh/themes/miel.omp.json`, an Oh My Posh prompt using only the Miel palette.
+Miel includes `oh-my-posh/themes/miel.omp.json` and the `miel-versions` helper script.
 
-## Included segments
+## Features
 
-- Root, path, Git, Node, TypeScript, Go, Java, Python, QML, Turbo, Yarn, npm, pnpm, and status segments from `star.omp.json`.
-- The original Oh My Posh icons for Git and language segments.
-- A compact path: parent folders use their first letter, including the dot for hidden folders, while the last two folders remain complete.
-- The `λ` prompt marker.
+- Honey-gold prompt based on the Miel palette.
+- Root indicator, compact path, Git branch and working-tree status, command status, and a second-line `λ` prompt marker.
+- Compact paths keep the last two directories complete; earlier directories are reduced to their first letter.
+- Project tool versions for Node, TypeScript, Go, Java, Python, QML, Turbo, Yarn, npm, and pnpm when their project files are present.
+- Version entries use a five-step gold gradient. Turbo is detected from the nearest `package.json` project root.
 
 ## Install
 
-Clone the repository, or download and extract its files to `~/.config/oh-my-posh/miel`.
+Install [Oh My Posh](https://ohmyposh.dev/docs/installation) and use a Nerd Font so the Git and language icons render correctly.
+
+Then clone Miel and link its helper script:
 
 ```sh
-git clone https://github.com/bouteillerAlan/miel.git ~/.config/oh-my-posh/miel
-ln -s ~/.config/oh-my-posh/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
-
-# ~/.zshrc
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/miel/oh-my-posh/themes/miel.omp.json)"
+git clone https://github.com/bouteillerAlan/miel.git ~/.config/miel
+mkdir -p ~/.local/bin
+ln -s ~/.config/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
 ```
 
-For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`. The version script applies the gold gradient and detects Turbo from the nearest project root. The theme keeps the original icons, so use a Nerd Font.
+Add this to `~/.zshrc`:
+
+```sh
+eval "$(oh-my-posh init zsh --config ~/.config/miel/oh-my-posh/themes/miel.omp.json)"
+```
+
+For Bash, replace `zsh` with `bash` and add the command to `~/.bashrc`. Restart the shell or source its configuration file.
