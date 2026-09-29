@@ -4,6 +4,13 @@
 index=0
 reset='\033[0m'
 separator="\\033[38;2;111;85;44m"
+prompt_start=
+prompt_end=
+case ${POSH_SHELL-} in
+  zsh) prompt_start='%{' ; prompt_end='%}' ;;
+  bash) prompt_start='\[' ; prompt_end='\]' ;;
+esac
+escape() { printf '%s%b%s' "$prompt_start" "$1" "$prompt_end"; }
 add() {
   case $((index % 5)) in
     0) color="\\033[38;2;111;85;44m" ;;
@@ -12,8 +19,14 @@ add() {
     3) color="\\033[38;2;230;168;23m" ;;
     4) color="\\033[38;2;255;200;87m" ;;
   esac
-  [ "$index" -eq 0 ] || printf '%b / %b' "$separator" "$reset"
-  printf '%b%s %s%b' "$color" "$1" "$2" "$reset"
+  if [ "$index" -ne 0 ]; then
+    escape "$separator"
+    printf ' / '
+    escape "$reset"
+  fi
+  escape "$color"
+  printf '%s %s' "$1" "$2"
+  escape "$reset"
   index=$((index + 1))
 }
 version() { "$@" 2>/dev/null || printf 'nover'; }
