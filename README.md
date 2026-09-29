@@ -8,7 +8,7 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 
 - [Neovim miel](docs/neovim.md): Oasis Moonlight highlights, lualine theme, and borders.
 - [Pi miel](docs/pi.md): Miel theme and status footer.
-- [Oh My Posh](docs/oh-my-posh.md): shell prompt with Miel colors, Unicode symbols, and a compact path.
+- [Oh My Posh](docs/oh-my-posh.md): shell prompt with Miel colors, Git, worktree and stash status.
 - [tmux miel](docs/tmux.md): status bar, pane borders, and window labels.
 
 ### Nvim

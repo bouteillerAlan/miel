@@ -231,8 +231,9 @@ func ohMyPoshTheme(c map[string]string) string {
           "type": "git",
           "style": "plain",
           "foreground": %q,
-          "template": "<%s>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "template": "<%s>on</> {{ if .IsWorkTree }}󰉍 {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Rebase }} 󰑓{{ end }}{{ if .Merge }} 󰘬{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
           "options": {
+            "branch_icon": " ",
             "fetch_status": true
           }
         },
