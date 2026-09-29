@@ -1,6 +1,7 @@
 # Oh My Posh
 
 Miel includes `oh-my-posh/themes/miel.omp.json` and the `miel-versions` helper script.
+It requires Oh My Posh 31.4.0 or later for the version gradient.
 
 ## Features
 
