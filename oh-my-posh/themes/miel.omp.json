@@ -33,6 +33,7 @@
         {
           "type": "text",
           "style": "plain",
+          "foreground": "linear-gradient(#6F552C, #98743A, #A66A2C, #E6A817, #FFC857)",
           "template": "{{ cmd \"sh\" \"-c\" \"miel-versions\" }}"
         },
         {
