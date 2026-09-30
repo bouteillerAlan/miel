@@ -12,16 +12,25 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 - [tmux miel](docs/tmux.md): status bar, pane borders, and window labels.
 
 ### Nvim
+
+#### Editor
+
 <img width="2539" height="1347" alt="image" src="https://github.com/user-attachments/assets/542f5006-15f6-4d2d-a770-85a3cdd29e85" />
 
-### Tmux and pi
+#### Alpha dash after few minutes
+
+<img width="1919" height="1054" alt="flake" src="https://github.com/user-attachments/assets/b2dbe25b-428f-48d6-9c54-c3de06054750" />
+
+### Tmux
 <img width="2546" height="1355" alt="image" src="https://github.com/user-attachments/assets/3a5f4cf1-c017-473d-87e3-622173f3a737" />
 
-### Pi bottom bar with  data
-<img width="2543" height="52" alt="image" src="https://github.com/user-attachments/assets/7fcad75e-7abf-4626-ab8d-97abde8f8f49" />
+### Pi 
 
-### Oh my posh with gradient and custom path section
-<img width="834" height="134" alt="image" src="https://github.com/user-attachments/assets/18e1d13b-e88f-4a52-8d33-e13dc79e3b72" />
+<img width="2550" height="593" alt="pi" src="https://github.com/user-attachments/assets/a7c9b14c-ed38-47c6-8ce1-dd6b30c11202" />
+
+### Oh my posh
+
+<img width="718" height="261" alt="omp" src="https://github.com/user-attachments/assets/f93b803e-3bcb-41bc-8c49-97fd2b07d6b2" />
 
 ## Install
 
