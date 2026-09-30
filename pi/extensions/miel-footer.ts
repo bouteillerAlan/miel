@@ -91,12 +91,16 @@ export default function (pi: ExtensionAPI) {
           if (totals.input) stats.push(theme.fg("accent", "↑") + theme.fg("mdCode", formatTokens(totals.input)));
           if (totals.output) stats.push(theme.fg("accent", "↓") + theme.fg("mdCode", formatTokens(totals.output)));
           if (totals.cacheRead) stats.push(theme.fg("accent", "R") + theme.fg("mdCode", formatTokens(totals.cacheRead)));
-          if (totals.cacheWrite) stats.push(theme.fg("syntaxPunctuation", "W") + theme.fg("mdCode", formatTokens(totals.cacheWrite)));
+          if (totals.cacheWrite) {
+            stats.push(theme.fg("syntaxPunctuation", "W") + theme.fg("mdCode", formatTokens(totals.cacheWrite)));
+          }
           if (totals.cacheHitRate !== undefined) {
             stats.push(theme.fg("syntaxPunctuation", "CH") + theme.fg("mdCode", `${totals.cacheHitRate.toFixed(1)}%`));
           }
           if (totals.cost) stats.push(theme.fg("syntaxPunctuation", "$") + theme.fg("mdCode", totals.cost.toFixed(3)));
           stats.push(progress + " " + theme.fg(contextLabelColor, contextText));
+          const codexUsage = footerData.getExtensionStatuses().get("codex-usage");
+          if (codexUsage) stats.push(theme.fg("muted", codexUsage));
           const model = ctx.model;
           const provider = model && footerData.getAvailableProviderCount() > 1
             ? theme.fg("dim", `(${model.provider}) `)
@@ -115,8 +119,8 @@ export default function (pi: ExtensionAPI) {
           const padding = " ".repeat(Math.max(2, width - visibleWidth(left) - visibleWidth(right)));
           const branch = footerData.getGitBranch();
           const lines = [theme.fg("dim", displayCwd(ctx, branch)), left + padding + right];
-          for (const text of footerData.getExtensionStatuses().values()) {
-            lines.push(theme.fg("dim", text));
+          for (const [key, text] of footerData.getExtensionStatuses()) {
+            if (key !== "codex-usage") lines.push(theme.fg("dim", text));
           }
           return lines.map((line) => truncateToWidth(line, width));
         },

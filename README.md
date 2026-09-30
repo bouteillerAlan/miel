@@ -72,9 +72,9 @@ Install the Pi package from the shared clone:
 pi install ~/.config/miel
 ```
 
-The package installs the Miel theme and footer extension. Select `miel` in `/settings`.
+The package installs the Miel theme, footer extension, and Codex quota extension. Select `miel` in `/settings`.
 
-The footer uses custom color and unicode thinking level. The context colors are gradient in function of the %.
+The footer uses custom color and unicode thinking level. The context colors are gradient in function of the %. Codex models show their 5-hour and weekly quota meters with reset times. Only Codex is supported for now.
 
 ### [Oh My Posh](https://ohmyposh.dev)
 
