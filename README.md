@@ -6,7 +6,7 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 
 ## Features and screenshot
 
-- [Neovim miel](docs/neovim.md): Oasis Moonlight highlights, lualine theme, and borders.
+- [Neovim miel](docs/neovim.md): Oasis Moonlight highlights, lualine theme, borders, and Alpha dashboard.
 - [Pi miel](docs/pi.md): Miel theme and status footer.
 - [Oh My Posh](docs/oh-my-posh.md): shell prompt with Miel colors, Git, worktree and stash status.
 - [tmux miel](docs/tmux.md): status bar, pane borders, and window labels.
@@ -41,6 +41,9 @@ Use the shared clone as a local plugin:
   dependencies = {
     "uhs-robert/oasis.nvim",
     "nvim-lualine/lualine.nvim",
+    "goolord/alpha-nvim",
+    "nvim-mini/mini.icons",
+    "nvim-lua/plenary.nvim",
   },
   config = function(plugin)
     vim.opt.rtp:append(plugin.dir .. "/neovim")
@@ -49,14 +52,15 @@ Use the shared clone as a local plugin:
 }
 ```
 
-Miel configures Oasis Moonlight with Miel highlights and a lualine bar. Its Neovim setup sets gold window and borders.
+Miel configures Oasis Moonlight with Miel highlights, a lualine bar, gold window borders, and an animated Alpha dashboard.
 
-Choose either integration with `setup`, both are enabled by default:
+Choose which integrations to enable with `setup`. All are enabled by default:
 
 ```lua
 require("miel").setup({
   nvim = true,
   lualine = false,
+  alpha = false,
 })
 ```
 
