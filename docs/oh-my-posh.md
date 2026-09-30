@@ -9,8 +9,8 @@ It requires Oh My Posh 31.4.0 or later for the version gradient.
 - Root indicator, compact path, Git status, command status, and a second-line `λ` prompt marker.
 - Git uses Nerd Font icons for branches (``), worktrees (`󰉍`), stashes (``), rebases (`󰑓`) and merges (`󰘬`).
 - Compact paths keep the last two directories complete; earlier directories are reduced to their first letter.
-- Project tool versions for Node, TypeScript, Go, Java, Python, QML, Turbo, Yarn, npm, and pnpm when their project files are present.
-- Version entries use a five-step gold gradient. Turbo is detected from the nearest `package.json` project root.
+- The `miel-versions` helper shows Node, TypeScript, Go, Java, Python, QML, Turbo, Yarn, npm, and pnpm versions when their project files are present.
+- Visible version entries cycle red, orange, amber, and gold by position. Each uses a gradient from that color to a lighter shade. Turbo is detected from the nearest `package.json` project root.
 
 ## Install
 

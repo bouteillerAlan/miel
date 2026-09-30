@@ -34,14 +34,69 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "linear-gradient(#6F552C, #98743A, #A66A2C, #E6A817, #FFC857)",
-          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions\" }}"
+          "foreground": "light-gradient(#d70000)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 0\" }}"
         },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#ff5f00)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 1\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#ffaf00)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 2\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#e5a717)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 3\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#d70000)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 4\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#ff5f00)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 5\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#ffaf00)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 6\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#e5a717)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 7\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#d70000)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 8\" }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "light-gradient(#ff5f00)",
+          "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 9\" }}"
+        },
+
         {
           "type": "status",
           "style": "plain",
           "foreground": "#A66A2C",
-          "template": "x "
+          "template": "⁠ x "
         }
       ]
     },
