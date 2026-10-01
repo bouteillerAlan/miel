@@ -5,7 +5,7 @@
   "keywords": ["pi-package", "pi-theme", "neovim", "tmux", "theme"],
   "license": "GPL-3",
   "pi": {
-    "extensions": ["./pi/extensions/miel-footer.ts", "./pi/extensions/codex-usage.ts"],
+    "extensions": ["./pi/extensions/miel-footer.ts", "./pi/extensions/codex-usage.ts", "./pi/extensions/pi-logo.ts"],
     "themes": ["./pi/themes/miel.json"]
   }
 }
