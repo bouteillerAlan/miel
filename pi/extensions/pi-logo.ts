@@ -1,9 +1,10 @@
 import { CustomEditor, type ExtensionAPI, type KeybindingsManager } from "@earendil-works/pi-coding-agent";
-import { mixColors, type EditorTheme, type TUI } from "@earendil-works/pi-tui";
+import { mixColors, parseColor, type EditorTheme, type TUI } from "@earendil-works/pi-tui";
 
 const LOGO_WIDTH = 6;
 const ANIMATION_FRAME_MS = 50;
 const ANIMATION_CYCLE_MS = 1_800;
+const LOGO_COLORS = ["#e48a7a", "#4f8eb3", "#eab65d"].map(parseColor);
 
 /**
  * Render the Pi logo beside the chat editor
@@ -78,7 +79,7 @@ class PiLogoEditor extends CustomEditor {
    * @return - the brightness of the top, lower-left and lower-right sections
    */
   private getSectionBrightness(): number[] {
-    if (!this.animationTimer) return [1, 1, 1];
+    if (!this.animationTimer) return [];
 
     const elapsed = performance.now() - this.animationStartedAt;
     const phase = elapsed / ANIMATION_CYCLE_MS * Math.PI * 2;
@@ -103,13 +104,16 @@ export default function piLogoExtension(pi: ExtensionAPI): void {
     if (ctx.mode !== "tui") return;
     ctx.ui.setEditorComponent((tui, theme, keybindings) => {
       editor = new PiLogoEditor(tui, theme, keybindings, (brightness) => {
-        const color = (text: string, value: number) => {
-          return ctx.ui.theme.style(text, { fg: mixColors(ctx.ui.theme.colors.dim, ctx.ui.theme.colors.accent, value) });
+        if (brightness.length === 0) {
+          return [ctx.ui.theme.fg("accent", " █▀█") + "  ", ctx.ui.theme.fg("accent", " █▀ █") + " "];
+        }
+
+        const color = (text: string, index: number) => {
+          return ctx.ui.theme.style(text, {
+            fg: mixColors(ctx.ui.theme.colors.dim, LOGO_COLORS[index]!, brightness[index]!),
+          });
         };
-        return [
-          " " + color("█▀█", brightness[0]!) + "  ",
-          " " + color("█▀", brightness[1]!) + " " + color("█", brightness[2]!) + " ",
-        ];
+        return [" " + color("█▀█", 0) + "  ", " " + color("█▀", 1) + " " + color("█", 2) + " "];
       });
       return editor;
     });
