@@ -33,7 +33,7 @@ class PiLogoEditor extends CustomEditor {
     if (width <= LOGO_WIDTH) return super.render(width);
 
     const editorLines = super.render(width - LOGO_WIDTH);
-    const logoLines = [this.colorLogo(" ▀▀█") + "  ", this.colorLogo(" █▀ █") + " "];
+    const logoLines = [this.colorLogo(" █▀█") + "  ", this.colorLogo(" █▀ █") + " "];
 
     return editorLines.map((line, index) => (logoLines[index] ?? " ".repeat(LOGO_WIDTH)) + line);
   }
