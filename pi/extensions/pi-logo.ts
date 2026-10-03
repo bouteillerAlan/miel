@@ -1,10 +1,9 @@
 import { CustomEditor, type ExtensionAPI, type KeybindingsManager } from "@earendil-works/pi-coding-agent";
-import { mixColors, parseColor, type EditorTheme, type TUI } from "@earendil-works/pi-tui";
+import { mixColors, type EditorTheme, type TUI } from "@earendil-works/pi-tui";
 
 const LOGO_WIDTH = 6;
 const ANIMATION_FRAME_MS = 50;
 const ANIMATION_CYCLE_MS = 1_800;
-const LOGO_COLORS = ["#e48a7a", "#4f8eb3", "#eab65d"].map(parseColor);
 
 /**
  * Render the Pi logo beside the chat editor
@@ -110,7 +109,7 @@ export default function piLogoExtension(pi: ExtensionAPI): void {
 
         const color = (text: string, index: number) => {
           return ctx.ui.theme.style(text, {
-            fg: mixColors(ctx.ui.theme.colors.dim, LOGO_COLORS[index]!, brightness[index]!),
+            fg: mixColors(ctx.ui.theme.colors.dim, ctx.ui.theme.colors.accent, brightness[index]!),
           });
         };
         return [" " + color("█▀█", 0) + "  ", " " + color("█▀", 1) + " " + color("█", 2) + " "];
