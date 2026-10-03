@@ -83,7 +83,7 @@ pi install ~/.config/miel
 
 The package installs the Miel theme, footer extension, and Codex quota extension. Select `miel` in `/settings`.
 
-The footer uses custom color and unicode thinking level. The context colors are gradient in function of the %. Codex models show their 5-hour and weekly quota meters with reset times. Only Codex is supported for now.
+The footer uses custom color and unicode thinking level. The context colors are gradient in function of the %. Codex models show their 5-hour and weekly quota meters with reset times. Only Codex is supported for now. Install the Codex CLI and sign in with the same ChatGPT account to show the quota meters.
 
 ### [Oh My Posh](https://ohmyposh.dev)
 
