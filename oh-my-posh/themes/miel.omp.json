@@ -32,6 +32,19 @@
           }
         },
         {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#A66A2C",
+          "template": "⁠ x "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
           "type": "text",
           "style": "plain",
           "foreground": "light-gradient(#d70000)",
@@ -90,13 +103,6 @@
           "style": "plain",
           "foreground": "light-gradient(#ff5f00)",
           "template": "{{ cmd \"sh\" \"-c\" \"miel-versions 9\" }}"
-        },
-
-        {
-          "type": "status",
-          "style": "plain",
-          "foreground": "#A66A2C",
-          "template": "⁠ x "
         }
       ]
     },

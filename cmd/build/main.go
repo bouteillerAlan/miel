@@ -118,13 +118,17 @@ func versionCommandSegments() string {
 		if err != nil {
 			fail(err)
 		}
+		separator := ","
+		if index == versionSlots-1 {
+			separator = ""
+		}
 		fmt.Fprintf(&segments, `        {
           "type": "text",
           "style": "plain",
           "foreground": "light-gradient(%s)",
           "template": %s
-        },
-`, colors[index%len(colors)], template)
+        }%s
+`, colors[index%len(colors)], template, separator)
 	}
 	return segments.String()
 }
@@ -274,7 +278,6 @@ func ohMyPoshTheme(c map[string]string) string {
             "fetch_status": true
           }
         },
-%s
         {
           "type": "status",
           "style": "plain",
@@ -282,6 +285,13 @@ func ohMyPoshTheme(c map[string]string) string {
           "template": "⁠ x "
         }
       ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+%s      ]
     },
     {
       "type": "prompt",
@@ -299,7 +309,7 @@ func ohMyPoshTheme(c map[string]string) string {
   ]
 }
 `, c["bronze"], c["cream"], c["gold"], shortenedPathTemplate(), c["hot_gold"], c["cream"],
-		versionCommandSegments(), c["bronze"], c["hot_gold"])
+		c["bronze"], versionCommandSegments(), c["hot_gold"])
 }
 
 func tmuxTheme(c map[string]string) string {
