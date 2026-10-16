@@ -115,6 +115,16 @@ tmux source-file ~/.tmux.conf
 
 Window labels are Fraktur `𝖆` (a) through `𝖟` (z). Higher indexes use their number.
 
+### [gtklock](https://github.com/jovanlanik/gtklock)
+
+Start gtklock with the Miel stylesheet:
+
+```sh
+gtklock --style ~/.config/miel/gtklock/style.css
+```
+
+For Hypridle, set `lock_cmd` to `pidof gtklock || gtklock --style ~/.config/miel/gtklock/style.css`.
+
 ## Develop
 
 ```sh
