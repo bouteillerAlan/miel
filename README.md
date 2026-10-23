@@ -1,6 +1,6 @@
 # 🍯 Miel
 
-A honey-gold theme for Neovim, Pi, Tmux and Oh my posh.
+A honey-gold theme for Neovim, Pi, Tmux, Oh My Posh and Oh My Zsh.
 
 Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (included as dependencies for nvim).
 
@@ -9,6 +9,7 @@ Work well with [oasis moonlight](https://github.com/uhs-robert/oasis.nvim) (incl
 - [Neovim miel](docs/neovim.md): Oasis Moonlight highlights, lualine theme, borders, and Alpha dashboard.
 - [Pi miel](docs/pi.md): Miel theme and status footer.
 - [Oh My Posh](docs/oh-my-posh.md): shell prompt with Miel colors, Git, worktree and stash status.
+- [Oh My Zsh](docs/oh-my-zsh.md): native Zsh theme with the same prompt layout and version indicators.
 - [tmux miel](docs/tmux.md): status bar, pane borders, and window labels.
 
 ### Nvim
@@ -97,6 +98,24 @@ eval "$(oh-my-posh init zsh --config ~/.config/miel/oh-my-posh/themes/miel.omp.j
 ```
 
 For Bash, replace `zsh` with `bash` and add it to `~/.bashrc`.
+
+### [Oh My Zsh](https://ohmyz.sh/)
+
+Link the native theme and version helper from the shared clone:
+
+```sh
+ln -s ~/.config/miel/oh-my-zsh/themes/miel.zsh-theme \
+  "${ZSH_CUSTOM:-$ZSH/custom}/themes/miel.zsh-theme"
+ln -s ~/.config/miel/oh-my-posh/scripts/miel-versions.sh ~/.local/bin/miel-versions
+```
+
+Set the theme in `~/.zshrc`:
+
+```sh
+ZSH_THEME="miel"
+```
+
+The native theme does not require Oh My Posh.
 
 ### [Tmux](https://github.com/tmux/tmux/wiki)
 
